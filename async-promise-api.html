@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise api</title>
+</head>
+<body>
+<script>
+    var jsonPromise = new Promise(function (resolve, reject) {
+        resolve(JSON.parse('this ain\'t JSON'));
+    });
+    jsonPromise.then(function (data) {
+        console.log('It worked!', data);
+        return 1;
+    },function (err) {
+        console.log('It failed!', err);
+        return 0;
+    }).then(function (data) {
+        console.log(data);
+        return 2;
+    },function (err) {
+        console.log(err);
+        return 0
+    }).catch(function (err) {
+        console.log(err);
+    });
+</script>
+</body>
+</html>
